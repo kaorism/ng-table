@@ -655,6 +655,7 @@ app.directive('ngTable', ['$compile', '$q', '$parse',
 ]);
 
 angular.module('ngTable').run(['$templateCache', function ($templateCache) {
+	$templateCache.put('ng-table/filters/select-group.html', '<select ng-options="data.id as data.title group by data.group for data in column.data" ng-model="params.filter()[name]" ng-show="filter==\'select-group\'" class="filter filter-select form-control" name="{{column.filterName}}"> </select>');
 	$templateCache.put('ng-table/filters/select-multiple.html', '<select ng-options="data.id as data.title for data in column.data" multiple ng-multiple="true" ng-model="params.filter()[name]" ng-show="filter==\'select-multiple\'" class="filter filter-select-multiple form-control" name="{{column.filterName}}"> </select>');
 	$templateCache.put('ng-table/filters/select.html', '<select ng-options="data.id as data.title for data in column.data" ng-model="params.filter()[name]" ng-show="filter==\'select\'" class="filter filter-select form-control" name="{{column.filterName}}"> </select>');
 	$templateCache.put('ng-table/filters/text.html', '<input type="text" name="{{column.filterName}}" ng-model="params.filter()[name]" ng-if="filter==\'text\'" class="input-filter form-control"/>');
